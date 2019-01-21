@@ -8,17 +8,18 @@
 
 import Foundation
 
-struct Forecast: Codable {
-    let response: [ForecastData]
+struct Forecast:Codable {
+    let response: [WeatherForWeek]?
 }
-
-struct ForecastData: Codable {
-    let maxTempF: Int
-    let minTempF: Int
-    let precipIN: Int
-    let windGustMPH: Int
-    let weather:  String
+struct WeatherForWeek: Codable{
+    let periods: [Day]?
+}
+struct Day:Codable {
+    let dateTimeISO: String
+    let maxTempF: Int?
+    let minTempF: Int?
+    let precipIN: Double
     let icon: String
-    let sunrise: Int
-    let sunset: Int
+    let windSpeedMaxMPH: Int
+    let weather: String
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class WeatherDetailViewController: UIViewController {
     
+    private var forecasts: Forecast!
     
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var forcastImage: UIImageView!

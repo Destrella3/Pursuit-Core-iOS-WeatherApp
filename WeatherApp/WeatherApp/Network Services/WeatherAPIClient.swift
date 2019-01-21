@@ -9,8 +9,8 @@
 import Foundation
 
 final class ForecastAPIClinet {
-    static func getForecast(onCompletion: @escaping ((AppError?, [Forecast]?) -> Void)) {
-        NetworkHelper.shared.performDataTask(endpointURLString: "https://api.aerisapi.com/forecasts/[:action]?client_id=\(AerisSecretKeys.AccessID)&client_secret=\(AerisSecretKeys.APIKey)", httpMethod: "GET", httpBody: nil) { (appError, data, httpResponse) in
+    static func getForecast(zipcode: String, onCompletion: @escaping ((AppError?, [WeatherForWeek]?) -> Void)) {
+        NetworkHelper.shared.performDataTask(endpointURLString: "https://api.aerisapi.com/forecasts/\(zipcode)?client_id=\(AerisSecretKeys.AccessID)&client_secret=\(AerisSecretKeys.APIKey)", httpMethod: "GET", httpBody: nil) { (appError, data, httpResponse) in
             if let appError = appError {
                 onCompletion(appError, nil)
             }
@@ -22,8 +22,8 @@ final class ForecastAPIClinet {
             }
             if let data = data {
                 do {
-                    let forecast = try JSONDecoder().decode([Forecast].self, from: data)
-                    onCompletion(nil, forecast)
+                    let forecast = try JSONDecoder().decode(Forecast.self, from: data)
+                    onCompletion(nil, forecast.response)
                 } catch {
                     onCompletion(AppError.decodingError(error), nil)
                 }

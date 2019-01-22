@@ -10,7 +10,7 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
-    private var forecast = [WeatherForWeek]() {
+    private var forecast = [Day]() {
         didSet {
             DispatchQueue.main.async {
                 self.weatherCollectionView.reloadData()
@@ -24,7 +24,10 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherCollectionView.dataSource = self
+        weatherCollectionView.delegate = self
+        weatherTextField.delegate = self
         uploadData()
+        
     }
     
     private func uploadData() {
@@ -36,24 +39,39 @@ class WeatherViewController: UIViewController {
             }
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
+  
 }
 
-extension WeatherViewController: UICollectionViewDataSource {
+extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return forecast.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = weatherCollectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as?  WeatherCollectionViewCell else { return UICollectionViewCell()}
-        let forecastToSet = forecast[indexPath.row].periods
-        cell.weatherHigh.text = "High: \(forecastToSet![indexPath.row].maxTempF ?? 0)℉"
-        cell.weatherLow.text = "Low: \(forecastToSet![indexPath.row].minTempF ?? 0)℉"
-        cell.date.text = forecastToSet![indexPath.row].dateTimeISO
-        cell.weatherImage.image = UIImage(named: "blizzard") 
+        let forecastToSet = forecast[indexPath.row]
+        cell.weatherHigh.text = "High: \(forecastToSet.maxTempF)℉"
+        cell.weatherLow.text = "Low: \(forecastToSet.minTempF)℉"
+        cell.weatherImage.image = UIImage(named: forecastToSet.icon)
+        cell.date.text = WeatherDateHelper.formatISOToDate(dateString: forecastToSet.dateTimeISO)
+        cell.layer.borderWidth = 2
+        cell.layer.borderColor = UIColor.black.cgColor
+        
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: 165, height: 265)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        guard let vc = storyBoard.instantiateViewController(withIdentifier: "WeatherDetailVC") as? WeatherDetailViewController else { return }
+        vc.forecasts = forecast[indexPath.row]
+        
+    }
+}
+
+extension WeatherViewController: UITextFieldDelegate {
+    
 }

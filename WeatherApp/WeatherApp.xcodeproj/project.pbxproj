@@ -23,6 +23,9 @@
 		62ABA5E221F3E8CE0067973E /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62ABA5E121F3E8CE0067973E /* SecretKeys.swift */; };
 		62ABA5E521F3F3E50067973E /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62ABA5E421F3F3E50067973E /* Forecast.swift */; };
 		62ABA5E821F3FA8B0067973E /* WeatherAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62ABA5E721F3FA8B0067973E /* WeatherAPIClient.swift */; };
+		62ABA5EA21F54D3A0067973E /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62ABA5E921F54D3A0067973E /* DateHelper.swift */; };
+		62ABA5EC21F6597E0067973E /* PixabayAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62ABA5EB21F6597E0067973E /* PixabayAPIClient.swift */; };
+		62ABA5EF21F6602D0067973E /* Pixabay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62ABA5EE21F6602D0067973E /* Pixabay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		62ABA5E121F3E8CE0067973E /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		62ABA5E421F3F3E50067973E /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		62ABA5E721F3FA8B0067973E /* WeatherAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIClient.swift; sourceTree = "<group>"; };
+		62ABA5E921F54D3A0067973E /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		62ABA5EB21F6597E0067973E /* PixabayAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayAPIClient.swift; sourceTree = "<group>"; };
+		62ABA5EE21F6602D0067973E /* Pixabay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixabay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +105,9 @@
 			children = (
 				62ABA5DA21F3DA820067973E /* Network Services */,
 				62ABA5D321F2BD710067973E /* Weather Helper */,
-				62ABA5E321F3E8D20067973E /* Keys */,
+				62ABA5ED21F659AE0067973E /* API Client */,
 				62ABA5E621F3F3EF0067973E /* Model */,
+				62ABA5E321F3E8D20067973E /* Keys */,
 				62ABA5D121F2BD3D0067973E /* Cells */,
 				62ABA5D221F2BD480067973E /* Controllers */,
 				57EE00AF21F160D400D76A6E /* Supporting Files */,
@@ -161,7 +168,7 @@
 				62ABA5D821F3DA7C0067973E /* NetworkHelper.swift */,
 				62ABA5DF21F3DE1B0067973E /* ImageHelper.swift */,
 				62ABA5DB21F3DB840067973E /* AppError.swift */,
-				62ABA5E721F3FA8B0067973E /* WeatherAPIClient.swift */,
+				62ABA5E921F54D3A0067973E /* DateHelper.swift */,
 			);
 			path = "Network Services";
 			sourceTree = "<group>";
@@ -178,8 +185,18 @@
 			isa = PBXGroup;
 			children = (
 				62ABA5E421F3F3E50067973E /* Forecast.swift */,
+				62ABA5EE21F6602D0067973E /* Pixabay.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		62ABA5ED21F659AE0067973E /* API Client */ = {
+			isa = PBXGroup;
+			children = (
+				62ABA5E721F3FA8B0067973E /* WeatherAPIClient.swift */,
+				62ABA5EB21F6597E0067973E /* PixabayAPIClient.swift */,
+			);
+			path = "API Client";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,12 +302,15 @@
 			files = (
 				57EE00A021F15E0F00D76A6E /* ZipCodeHelper.swift in Sources */,
 				62ABA5E521F3F3E50067973E /* Forecast.swift in Sources */,
+				62ABA5EF21F6602D0067973E /* Pixabay.swift in Sources */,
 				62ABA5E021F3DE1B0067973E /* ImageHelper.swift in Sources */,
 				62ABA5D721F2C92F0067973E /* WeatherFavoriteViewController.swift in Sources */,
 				62ABA5D021F2BD320067973E /* WeatherCollectionViewCell.swift in Sources */,
 				57EE009021F15D7000D76A6E /* WeatherViewController.swift in Sources */,
 				62ABA5E821F3FA8B0067973E /* WeatherAPIClient.swift in Sources */,
 				62ABA5DC21F3DB840067973E /* AppError.swift in Sources */,
+				62ABA5EC21F6597E0067973E /* PixabayAPIClient.swift in Sources */,
+				62ABA5EA21F54D3A0067973E /* DateHelper.swift in Sources */,
 				62ABA5D521F2C37C0067973E /* WeatherDetailViewController.swift in Sources */,
 				57EE008E21F15D7000D76A6E /* AppDelegate.swift in Sources */,
 				62ABA5D921F3DA7C0067973E /* NetworkHelper.swift in Sources */,

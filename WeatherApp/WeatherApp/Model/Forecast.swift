@@ -9,17 +9,19 @@
 import Foundation
 
 struct Forecast:Codable {
-    let response: [WeatherForWeek]?
+    let response: [WeatherForWeek]
 }
 struct WeatherForWeek: Codable{
-    let periods: [Day]?
+    let periods: [Day]
 }
 struct Day:Codable {
     let dateTimeISO: String
-    let maxTempF: Int?
-    let minTempF: Int?
+    let maxTempF: Int
+    let minTempF: Int
     let precipIN: Double
     let icon: String
     let windSpeedMaxMPH: Int
-    let weather: String
+    let weather: String?
+    let sunriseISO: String
+    let sunsetISO: String
 }

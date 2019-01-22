@@ -10,7 +10,7 @@ import UIKit
 
 class WeatherDetailViewController: UIViewController {
     
-    private var forecasts: Forecast!
+    public var forecasts: Day!
     
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var forcastImage: UIImageView!
@@ -25,9 +25,17 @@ class WeatherDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        uploadData()
         
     }
-    
+    private func uploadData() {
+        weatherForcast.text = forecasts.weather
+        highTemp.text = "High: \(forecasts.maxTempF)"
+        lowTemp.text = "Low: \(forecasts.minTempF)"
+        windspeed.text = "Windspeed: \(forecasts.windSpeedMaxMPH)"
+        inchesofPercipitation.text = "Inches of Percipitation \(forecasts.precipIN)"
+        sunrise.text = WeatherDateHelper.formatISOToTime(dateString: forecasts.sunriseISO)
+        sunset.text = WeatherDateHelper.formatISOToTime(dateString: forecasts.sunsetISO)
+    }
     
 }

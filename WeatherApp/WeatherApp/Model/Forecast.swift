@@ -21,7 +21,7 @@ struct Day:Codable {
     let precipIN: Double
     let icon: String
     let windSpeedMaxMPH: Int
-    let weather: String?
+    let weather: String
     let sunriseISO: String
     let sunsetISO: String
 }

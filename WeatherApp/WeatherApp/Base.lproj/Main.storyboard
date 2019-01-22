@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yVp-8M-0oM">
-                                <rect key="frame" x="12" y="129" width="390" height="294"/>
+                                <rect key="frame" x="12" y="129.00000000000003" width="390" height="294.66666666666674"/>
                                 <color key="backgroundColor" red="0.77994920379999999" green="0.77996574240000005" blue="0.79907598349999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="yVp-8M-0oM" secondAttribute="height" multiplier="4:3" constant="-2" id="M5H-iD-upv"/>
+                                    <constraint firstAttribute="width" secondItem="yVp-8M-0oM" secondAttribute="height" multiplier="4:3" constant="-3" id="M5H-iD-upv"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yib-c7-Dl9">
                                     <size key="itemSize" width="231" height="278"/>
@@ -31,7 +31,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherCell" id="dkf-Gd-1ob" customClass="WeatherCollectionViewCell" customModule="WeatherApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8" width="231" height="278"/>
+                                        <rect key="frame" x="0.0" y="8.3333333333333339" width="231" height="278"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="231" height="278"/>
@@ -83,7 +83,7 @@
                                             <outlet property="weatherHigh" destination="ibC-ql-JAn" id="eAD-j5-reB"/>
                                             <outlet property="weatherImage" destination="Lxr-hB-7Jq" id="2qA-4k-E4o"/>
                                             <outlet property="weatherLow" destination="yXx-bf-7aI" id="mLB-4C-lOv"/>
-                                            <segue destination="3Mq-Ax-xK7" kind="show" id="r2d-Vl-wDr"/>
+                                            <segue destination="3Mq-Ax-xK7" kind="show" identifier="DetailSegue" id="mtp-aD-Onh"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -95,14 +95,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vCe-eI-6dj">
-                                <rect key="frame" x="150" y="467" width="114" height="30"/>
+                                <rect key="frame" x="150" y="467.66666666666669" width="114" height="30"/>
                                 <color key="backgroundColor" red="0.78612785529999996" green="0.78612785529999996" blue="0.78612785529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a Zip Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avk-xU-UH9">
-                                <rect key="frame" x="11" y="519" width="392" height="21"/>
+                                <rect key="frame" x="11" y="519.66666666666663" width="392" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

@@ -22,7 +22,6 @@ class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var windspeed: UILabel!
     @IBOutlet weak var inchesofPercipitation: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         uploadData()
@@ -30,12 +29,12 @@ class WeatherDetailViewController: UIViewController {
     }
     private func uploadData() {
         weatherForcast.text = forecasts.weather
-        highTemp.text = "High: \(forecasts.maxTempF)"
-        lowTemp.text = "Low: \(forecasts.minTempF)"
+        highTemp.text = "High: \(forecasts.maxTempF)℉"
+        lowTemp.text = "Low: \(forecasts.minTempF)℉"
         windspeed.text = "Windspeed: \(forecasts.windSpeedMaxMPH)"
         inchesofPercipitation.text = "Inches of Percipitation \(forecasts.precipIN)"
-        sunrise.text = WeatherDateHelper.formatISOToTime(dateString: forecasts.sunriseISO)
-        sunset.text = WeatherDateHelper.formatISOToTime(dateString: forecasts.sunsetISO)
+        sunrise.text = "Sunrise: \(WeatherDateHelper.formatISOToTime(dateString: forecasts.sunriseISO))"
+        sunset.text = "Sunset: \(WeatherDateHelper.formatISOToTime(dateString: forecasts.sunsetISO))"
     }
     
 }

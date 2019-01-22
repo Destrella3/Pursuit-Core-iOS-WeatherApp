@@ -39,7 +39,15 @@ class WeatherViewController: UIViewController {
             }
         }
     }
-  
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailSegue" {
+            let detailsVC = segue.destination as! WeatherDetailViewController
+            let cell = sender as! UICollectionViewCell
+            let indexPaths = self.weatherCollectionView.indexPath(for: cell)
+            detailsVC.forecasts = forecast[indexPaths!.row]
+        }
+    }
 }
 
 extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -62,13 +70,6 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize.init(width: 165, height: 265)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        guard let vc = storyBoard.instantiateViewController(withIdentifier: "WeatherDetailVC") as? WeatherDetailViewController else { return }
-        vc.forecasts = forecast[indexPath.row]
-        
     }
 }
 

@@ -31,7 +31,7 @@ class WeatherDetailViewController: UIViewController {
         weatherForcast.text = forecasts.weather
         highTemp.text = "High: \(forecasts.maxTempF)℉"
         lowTemp.text = "Low: \(forecasts.minTempF)℉"
-        windspeed.text = "Windspeed: \(forecasts.windSpeedMaxMPH)"
+        windspeed.text = "Windspeed: \(forecasts.windSpeedMaxMPH)MPH"
         inchesofPercipitation.text = "Inches of Percipitation \(forecasts.precipIN)"
         sunrise.text = "Sunrise: \(WeatherDateHelper.formatISOToTime(dateString: forecasts.sunriseISO))"
         sunset.text = "Sunset: \(WeatherDateHelper.formatISOToTime(dateString: forecasts.sunsetISO))"

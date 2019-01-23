@@ -17,9 +17,10 @@ class WeatherViewController: UIViewController {
             }
         }
     }
-    
+    var location = String()
     @IBOutlet weak var weatherCollectionView: UICollectionView!
     @IBOutlet weak var weatherTextField: UITextField!
+    @IBOutlet weak var cityName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,8 @@ class WeatherViewController: UIViewController {
         uploadData()
         
     }
+    
+    
     
     private func uploadData() {
         ForecastAPIClinet.getForecast(zipcode: "10027") { (appError, forecast) in
@@ -64,7 +67,6 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
         cell.date.text = WeatherDateHelper.formatISOToDate(dateString: forecastToSet.dateTimeISO)
         cell.layer.borderWidth = 2
         cell.layer.borderColor = UIColor.black.cgColor
-        
         return cell
     }
     
@@ -74,5 +76,25 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
 }
 
 extension WeatherViewController: UITextFieldDelegate {
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let keyword = textField.text {
+            ZipCodeHelper.getLocationName(from: keyword) { (error, string) in
+                if let error = error {
+                    print(error)
+                } else if let string = string {
+                    self.location = string
+                    self.cityName.text = "Forecast for \(self.location)"
+                    print(self.location)
+                    ForecastAPIClinet.getForecast(zipcode: keyword, onCompletion: { (appError, day) in
+                        if let appError = appError {
+                            print(appError)
+                        } else if let day = day {
+                            self.forecast = day
+                        }
+                    })
+                }
+            }
+        }
+        return true
+    }
 }
